@@ -19,8 +19,13 @@ Output: [-1,-1]
  
 
 ### Constraints:
-
 1. 0 <= nums.length <= 105
 2. -109 <= nums[i] <= 109
 3. nums is a non-decreasing array.
 4. -109 <= target <= 109
+
+### Logic
+1. If our mid element is equal to target then store the position and if the occurance we are looking for is first move end to mid - 1, if occurance is last then move start to mid + 1
+2. If mid element value is greater than target then move end to mid - 1 
+3. Else move start to mid + 1
+4. Return the position

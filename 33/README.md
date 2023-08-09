@@ -26,3 +26,14 @@ Output: -1
 3. All values of nums are unique.
 4. nums is an ascending array that is possibly rotated.
 5. -104 <= target <= 104
+
+### Logic 
+### Approach 1
+This uses the built in indexOf function to get the index of target. If target is present then the index is returned else -1 is returned.
+
+### Approach 2
+We know that the array is sorted and roated.
+1. We find the min element in the array 
+2. This will give us two sorted sub arrays 
+3. Check in which sub array does our target value exists and initalize the start and end values 
+4. Apply binary search on the desired sub-array and return the index if present else -1

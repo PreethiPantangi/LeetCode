@@ -17,8 +17,6 @@ var searchMatrix = function(matrix, target) {
 var getElementPosition = function (nums, target) {
     start = 0; 
     end = nums.length - 1;
-    console.log(nums, target);
-    
     while(start <= end) {
         mid = parseInt(start + (end - start)/2);
         if(nums[mid] === target) {

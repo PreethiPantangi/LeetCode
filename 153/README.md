@@ -33,3 +33,14 @@ Explanation: The original array was [11,13,15,17] and it was rotated 4 times.
 3. -5000 <= nums[i] <= 5000
 4. All the integers of nums are unique.
 5. nums is sorted and rotated between 1 and n times.
+
+### Logic 
+### Approach 1
+1. While the first element is greater that the last element we will sort the array
+2. Return the first element of the array
+
+### Approach 2
+1. If mid element is greater that the last element move start t0 mid + 1
+2. Else move end to end 
+3. Run this loop until start < end 
+4. Return arr[start]

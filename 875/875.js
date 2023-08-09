@@ -23,13 +23,3 @@ var minEatingSpeed = function(piles, h) {
     }
     return k;
 };
-
-var getMax = function (piles) {
-    let max = -1;
-    for (let i = 0; i < piles.length; i++) {
-        if(piles[i] > max) {
-            max = piles[i];
-        }
-    }
-    return max;
-}

@@ -23,3 +23,9 @@ Explanation: Your function can return either index number 1 where the peak eleme
 1. 1 <= nums.length <= 1000
 2. -231 <= nums[i] <= 231 - 1
 3. nums[i] != nums[i + 1] for all valid i.
+
+### Logic 
+1. If our mid element is less than mid+1 element we move start to mid + 1
+2. Else move end to mid 
+3. Repeat this until start < end 
+4. Return the start index which is the peak element

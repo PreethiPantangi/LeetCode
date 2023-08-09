@@ -24,3 +24,9 @@ Output: 1
 1. 3 <= arr.length <= 105
 2. 0 <= arr[i] <= 106
 3. arr is guaranteed to be a mountain array.
+
+### Logic 
+1. If our mid element is less than mid+1 element we move start to mid + 1
+2. Else move end to mid 
+3. Repeat this until start < end 
+4. Return the start index which is the peak element

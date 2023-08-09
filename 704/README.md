@@ -21,3 +21,10 @@ Explanation: 2 does not exist in nums so return -1
 2. -104 < nums[i], target < 104
 3. All the integers in nums are unique.
 4. nums is sorted in ascending order.
+
+### Logic
+1. Check if mid element is equal to target then return mid 
+2. If mid element > target then move end to mid - 1
+3. Else move start to mid + 1
+4. Repeat this until start <= end 
+5. If not found return -1

@@ -25,3 +25,10 @@ Output: 23
 1. 1 <= piles.length <= 104
 2. piles.length <= h <= 109
 3. 1 <= piles[i] <= 109
+
+### Logic
+1. Assign start = 1 and end = max of the piles
+2. Calculate the mid value and calculate the number of hours required to finish one pile and add it to the totalHours
+3. If the totalHours is less that or equal to the number of hours the guard is away(h) then move end to mid - 1 and take the min value of k and mid as we require the min hours
+4. Else move start to mid + 1
+5. Return k, the minimum number of hours required
