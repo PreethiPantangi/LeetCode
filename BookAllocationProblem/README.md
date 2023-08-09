@@ -16,6 +16,6 @@ Output
 60
 
 ### Explanation
-All possible ways of book allocation are shown in the below figure-
+All possible ways of book allocation are shown in the below figure
 ![image](https://files.codingninjas.in/article_images/book-allocation-problem-2-1675222026.webp)
 The minimum of the maximum number of pages assigned = min{90,70,60} = 60. Hence, the required answer is 60.
