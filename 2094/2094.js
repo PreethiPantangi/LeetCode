@@ -7,28 +7,25 @@ var findEvenNumbers = function(digits) {
     if(areAllDigitsOdd) {
         return [];
     } else {
-        let res = [];
+        let res = new Set();
         for (let i = 0; i < digits.length; i++) {
             if(digits[i] % 2 == 0) {
                 for (let j = 0; j < digits.length; j++) {
                     if(j !== i) {
-                        let k = j + 1;
-                        while (k < digits.length) {
+                        for (let k = j + 1; k < digits.length; k++) {
                             if (k !== i) {
-                                // console.log(digits[j], digits[k]);
-                                let num1 = parseInt(digits[j].toString() + digits[k].toString() + digits[i].toString());
-                                let num2 = parseInt(digits[k].toString() + digits[j].toString() + digits[i].toString());
-                                num1 >= 100 && !res.includes(num1) && res.push(num1);
-                                num2 >= 100 && !res.includes(num2) && res.push(num2);
+                                let num1 = digits[j] * 100 + digits[k] * 10 + digits[i];
+                                let num2 = digits[k] * 100 + digits[j] * 10 + digits[i];
+                                num1 >= 100 && res.add(num1);
+                                num2 >= 100 && res.add(num2);
                             }
-                            k += 1;
                         }
                     }
                 }
             }
         }
-        return res.sort();
-    }
+        return Array.from(res).sort();
+    }   
 };
 
 console.log(findEvenNumbers([2,1,3,0]));
