@@ -10,17 +10,10 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    let len = 0;
-    let tempHead = head;
-    while(tempHead != null) {
-        len += 1;
-        tempHead = tempHead.next;
+    let sPtr = fPtr = head;
+    while(fPtr && fPtr.next != null) {
+        sPtr = sPtr.next;
+        fPtr = fPtr.next.next;
     }
-    let count = 0;
-    let mid = parseInt(0 + (len - 0)/2);
-    while(count != mid && head != null) {
-        head = head.next;
-        count += 1;
-    }
-    return head;
+    return sPtr;
 };
