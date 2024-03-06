@@ -15,12 +15,7 @@ var hasCycle = function(head) {
         return false;
     }
     let slow = head;
-    let fast = null;
-    if(!head.next) {
-        return false;
-    } else {
-        fast = head.next ? (head.next.next ? head.next.next : null) : null;
-    }
+    let fast = head.next;
     while(slow !== null && fast !== null) {
         if(slow.next !== fast.next) {
             slow = slow.next;
