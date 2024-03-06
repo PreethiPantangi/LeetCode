@@ -9,15 +9,13 @@ var constructRectangle = function(area) {
         if(area % i === 0) {
             let length = i;
             let width = Math.floor(area / i);
-            let differenceOne = length-width;
-            if(differenceOne >= 0 && differenceOne < min) {
-                min = differenceOne;
+            if(length-width >= 0 && length-width < min) {
+                min = length-width;
                 res = [length, width];
             } 
             if(length !== width) {
-                let differenceTwo = width-length;
-                if(differenceTwo >= 0 && differenceTwo < min) {
-                    min = differenceTwo;
+                if(width-length >= 0 && width-length < min) {
+                    min = width-length;
                     res = [width, length];
                 } 
             }
