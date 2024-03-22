@@ -10,11 +10,10 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    let arr = [];
-    let tempHead = head;
-    while(tempHead !== null) {
-        arr.push(tempHead.val);
-        tempHead = tempHead.next;
+    let vals = '';
+    while(head !== null) {
+        vals += head.val;
+        head = head.next;
     }
-    return arr.join() === arr.reverse().join();
+    return vals === vals.split("").reverse().join("");
 };
