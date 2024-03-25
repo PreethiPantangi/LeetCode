@@ -9,7 +9,6 @@ var findDuplicates = function(nums) {
     for(let i = 0; i < len; i++) {
         arr[nums[i]] += 1;
     }
-    console.log(arr)
     for(let i = 0; i < arr.length; i++) {
         if(arr[i] >= 2) {
             res.push(i);
