@@ -8,8 +8,11 @@ var findDuplicates = function(nums) {
     let res= [];
     for(let i = 0; i < len; i++) {
         arr[nums[i]] += 1;
-        if(arr[nums[i]] === 2 && !res.includes(nums[i])) {
-            res.push(nums[i]);
+    }
+    console.log(arr)
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] >= 2) {
+            res.push(i);
         }
     }
     return res;
