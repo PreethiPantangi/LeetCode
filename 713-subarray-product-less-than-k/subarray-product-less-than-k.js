@@ -28,21 +28,3 @@ var numSubarrayProductLessThanK = function(nums, k) {
         return res;
     }
 };
-
-function findAllCombinations(arr) {
-    const result = [];
-    
-    const generateCombinations = (index, subset) => {
-        if (index === arr.length) {
-            result.push(subset);
-            return;
-        }
-        
-        generateCombinations(index + 1, subset.concat(arr[index])); // Include current element
-        generateCombinations(index + 1, subset); // Exclude current element
-    };
-    
-    generateCombinations(0, []);
-    
-    return result;
-}
