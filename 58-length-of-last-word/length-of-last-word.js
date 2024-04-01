@@ -4,7 +4,10 @@
  */
 var lengthOfLastWord = function(s) {
     s = s.split(" ");
-    s = s.filter((word) => word !== "");
-    s = s.reverse();
-    return s[0].length;
+    console.log(s)
+    for(let i = s.length-1; i >= 0; i--) {
+        if(s[i] !== "") {
+            return s[i].length;
+        }
+    }
 };
