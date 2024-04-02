@@ -5,8 +5,8 @@
  */
 var isIsomorphic = function(s, t) {
     let map = {};
+    let values = []
     for(let i = 0; i < s.length; i++) {
-        let values = Object.values(map);
         if(map[s[i]]) {
             if(map[s[i]] !== t[i]) {
                 return false;
@@ -14,6 +14,7 @@ var isIsomorphic = function(s, t) {
         } else {
             if(!values.includes(t[i])) {
                 map[s[i]] = t[i];
+                values.push(t[i]);
             } else {
                 return false;
             }
