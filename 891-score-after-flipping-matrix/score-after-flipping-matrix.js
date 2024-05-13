@@ -30,7 +30,7 @@ var matrixScore = function(grid) {
   let result = 0;
   for(let i = 0; i < rows; i++) {
     for(let j = 0; j < cols; j++) {
-        result += grid[i][j] << (cols - j - 1);
+        result += grid[i][j] * Math.pow(2, (cols - j - 1));
     }
   }
   return result;
