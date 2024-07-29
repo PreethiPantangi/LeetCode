@@ -15,9 +15,7 @@ var addBinary = function(a, b) {
     let carry = 0;
     let res = '';
     for(let i = maxLen-1; i >= 0; i--) {
-        let num1 = parseInt(a[i]);
-        let num2 = parseInt(b[i]);
-        let sum = num1 + num2 + carry;
+        let sum = parseInt(a[i]) + parseInt(b[i]) + carry;
         if(sum === 2) {
             res += '0';
             carry = 1;
