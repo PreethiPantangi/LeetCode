@@ -3,21 +3,22 @@
  * @return {number}
  */
 var trap = function(height) {
-    let i = 0;
-    let leftMax = height[0];
-    let sum = 0;
-    let j = height.length-1;
-    let rightMax = height[j];
-    while(i < j) {
-        if(leftMax <= rightMax) {
-            sum += leftMax - height[i];
-            i += 1;
-            leftMax = Math.max(leftMax, height[i]);
-        } else {
-            sum += rightMax - height[j];
-            j -= 1;
-            rightMax = Math.max(rightMax, height[j]);
-        }
+    let len = height.length;
+    prefixMax = new Array(len).fill(0);
+    prefixMax[0] = height[0];
+    suffixMax = new Array(len).fill(0);
+    suffixMax[len - 1] = height[len - 1];
+
+    for(let i = 1; i < len; i++) {
+        prefixMax[i] = Math.max(prefixMax[i-1], height[i]);
     }
-    return sum;
+    for(let i = len-2; i >= 0; i--) {
+        suffixMax[i] = Math.max(suffixMax[i+1], height[i]);
+    }
+    
+    let totalWater = 0;
+    for(let i = 0; i < len; i++) {
+        totalWater += Math.min(prefixMax[i], suffixMax[i]) - height[i];
+    }
+    return totalWater;
 };
