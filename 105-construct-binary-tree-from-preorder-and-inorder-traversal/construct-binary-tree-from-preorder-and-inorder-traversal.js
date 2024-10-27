@@ -12,27 +12,22 @@
  * @return {TreeNode}
  */
 var buildTree = function(preorder, inorder) {
-    map = {};
+    _map = {};
     for(let i = 0; i < inorder.length; i++) {
-        map[inorder[i]] = i
+        _map[inorder[i]] = i;
     }
 
     return _buildTree(inorder, 0, inorder.length - 1, preorder, 0, preorder.length - 1);
 
-
-    function _buildTree(
-        inorder, inorderStart, inorderEnd, preorder, preorderStart, preorderEnd){
-            if(inorderStart > inorderEnd || preorderStart > preorderEnd) return null;
-            let root = new TreeNode(preorder[preorderStart]);
-            let inorderRootIndex = map[root.val];
-            let numsLeft = inorderRootIndex - inorderStart;
-
-            root.left = _buildTree(inorder, inorderStart, inorderRootIndex - 1, preorder, preorderStart + 1, preorderStart + numsLeft);
-
-            root.right = _buildTree(inorder, inorderRootIndex + 1, inorderEnd, preorder, preorderStart + numsLeft + 1, preorderEnd);
-
-            return root;
-
-    }
-
 };
+
+var _buildTree = function(inorder, inStart, inEnd, preorder, preStart, preEnd) {
+    if(inStart > inEnd || preStart > preEnd) return null;
+    let root = new TreeNode(preorder[preStart]); 
+    let inorderRootIndex = _map[root.val];
+    let numsOnLeft = inorderRootIndex - inStart;
+
+    root.left = _buildTree(inorder, inStart, inorderRootIndex - 1, preorder, preStart + 1, preStart + numsOnLeft);
+    root.right = _buildTree(inorder, inorderRootIndex + 1, inEnd, preorder, preStart + numsOnLeft + 1, preEnd);
+    return root;
+}
