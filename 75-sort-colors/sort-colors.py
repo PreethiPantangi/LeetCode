@@ -4,8 +4,11 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         length = len(nums)
-        for i in range(length):
-            for j in range(length-i-1):
-                if (nums[j] > nums[j+1]):
-                    [nums[j], nums[j+1]] = [nums[j+1], nums[j]]
+        for i in range(1, length):
+            key = nums[i]
+            j = i - 1
+            while (j >= 0 and nums[j] > key):
+                nums[j+1] = nums[j]
+                j -= 1
+            nums[j+1] = key
         
