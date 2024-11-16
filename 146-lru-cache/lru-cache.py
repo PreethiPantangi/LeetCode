@@ -21,11 +21,10 @@ class LRUCache:
         node.prev = curr_node
         node.next = self.tail
         self.tail.prev = node
-
+    
     def removeNode(self, node):
         node.prev.next = node.next
-        node.next.prev = node.prev      
-        
+        node.next.prev = node.prev
         
     def get(self, key: int) -> int:
         if key not in self.cache:
@@ -39,16 +38,16 @@ class LRUCache:
         if key in self.cache:
             self.removeNode(self.cache[key])
             del self.cache[key]
-        new_node = Node(key, value)
-        self.addNode(new_node)
-        self.cache[key] = new_node
+        node = Node(key, value)
+        self.addNode(node)
+        self.cache[key] = node
 
         if len(self.cache) > self.capacity:
             delete_node = self.head.next
             self.removeNode(delete_node)
             del self.cache[delete_node.key]
 
-        
+                   
 
 
 # Your LRUCache object will be instantiated and called as such:
