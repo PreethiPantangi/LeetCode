@@ -7,7 +7,9 @@ class Solution:
         for value, symbol in digits_mapping:
             if num == 0:
                 break
-            count, num = divmod(num, value)
+            # count, num = divmod(num, value)
+            count = num // value
+            num = num % value
             result.append(symbol * count)
         
         return "".join(result)
