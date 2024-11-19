@@ -6,11 +6,7 @@ class Solution:
             num //=10
         return rev_num
     def countDistinctIntegers(self, nums: List[int]) -> int:
-        initial_len = len(nums)
-        count = 0
+        unique_nums = set(nums)
         for num in nums:
-            nums.append(self.reverseNum(num))
-            count += 1
-            if count == initial_len:
-                break
-        return len(set(nums))
+            unique_nums.add(self.reverseNum(num))
+        return len(unique_nums)
