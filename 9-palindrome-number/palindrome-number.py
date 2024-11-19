@@ -1,11 +1,11 @@
 class Solution:
+    def reverseNum(self, num):
+        rev_num = 0
+        while num:
+            rev_num = (rev_num * 10) + (num % 10)
+            num //= 10
+        return rev_num
     def isPalindrome(self, x: int) -> bool:
-        x = str(x)
-        left = 0
-        right = len(x) - 1
-        while left < right:
-            if x[left] != x[right]:
-                return False
-            left += 1
-            right -= 1
-        return True
+        if x < 0:
+            return False
+        return x == self.reverseNum(x)
