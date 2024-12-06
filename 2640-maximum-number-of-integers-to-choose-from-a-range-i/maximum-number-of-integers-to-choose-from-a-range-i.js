@@ -7,15 +7,11 @@
 var maxCount = function(banned, n, maxSum) {
     let currSum = 0;
     let choosenNumbers = new Set();
-    let count = 0;
     for(let i = 1; i <= n; i++) {
-        if(!banned.includes(i) && !choosenNumbers.has(i)) {
-            if(currSum + i <= maxSum) {
-                currSum += i;
-                count += 1;
-                choosenNumbers.add(i);
-            } 
+        if(!banned.includes(i) && !choosenNumbers.has(i) && currSum + i <= maxSum) {
+            currSum += i;
+            choosenNumbers.add(i);
         }
     }
-    return count;
+    return choosenNumbers.size;
 };
