@@ -9,14 +9,15 @@ class Solution {
 
     private static void getSubsets(int index, List<Integer> numbers, List<Integer> result, Set<List<Integer>> finalResult) {
 
-        if(index == numbers.size()) {
-            finalResult.add(new ArrayList<>(result));
-            return;
-        }
+        finalResult.add(new ArrayList<>(result));
 
-        result.add(numbers.get(index));
-        getSubsets(index+1, numbers, result, finalResult);
-        result.remove(result.size()-1);
-        getSubsets(index+1, numbers, result, finalResult);
+        for(int i = index; i < numbers.size(); i++) {
+
+            if(i != index && numbers.get(i) == numbers.get(i-1)) continue;
+
+            result.add(numbers.get(i));
+            getSubsets(i+1, numbers, result, finalResult);
+            result.remove(result.size()-1);
+        }
     }
 }
