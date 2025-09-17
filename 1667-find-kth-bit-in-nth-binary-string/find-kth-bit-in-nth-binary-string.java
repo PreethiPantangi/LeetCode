@@ -5,13 +5,19 @@ class Solution {
     }
 
     private static String generateBitString(int n, int k) {
-        int size = (int) Math.pow(2, n);
+        if(n == 1 && k == 1) {
+            return "0";
+        }
+        String result = "";
+        int size = 1 << n;
         String[] values = new String[size];
         values[0] = values[1] = "0";
-        String result = "";
         for (int i = 1; i <= n; i++) {
             if (values[i] == null) {
                 values[i] = values[i-1] + "1" + reverse(invert(values[i-1]));
+            }
+            if(values[i].length() >= k) {
+                return values[i];
             }
         }
         result = values[n];
