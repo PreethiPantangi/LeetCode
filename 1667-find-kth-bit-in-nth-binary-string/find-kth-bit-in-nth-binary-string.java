@@ -25,15 +25,24 @@ class Solution {
     }
 
     private static String invert(String value) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < value.length(); i++) {
-            sb.append((value.charAt(i) == '1' ? "0" : "1"));
+        char[] inverted = value.toCharArray();
+        for (int i = 0; i < inverted.length; i++) {
+            inverted[i] =  (inverted[i] == '1') ? '0' : '1';
         }
-        return sb.toString();
+        return new String(inverted);
     }
 
     private static String reverse(String value) {
-        StringBuilder sb = new StringBuilder(value);
-        return sb.reverse().toString();
+        char[] reversed = value.toCharArray();
+        int left = 0;
+        int right = reversed.length - 1;
+        while (left < right) {
+            char temp = reversed[left];
+            reversed[left] =   reversed[right];
+            reversed[right] = temp;
+            left += 1;
+            right -= 1;
+        }
+        return new String(reversed);
     }
 }
