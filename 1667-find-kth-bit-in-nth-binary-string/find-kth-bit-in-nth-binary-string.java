@@ -8,20 +8,14 @@ class Solution {
         if(n == 1 && k == 1) {
             return "0";
         }
-        String result = "";
         int size = 1 << n;
         String[] values = new String[size];
         values[0] = values[1] = "0";
-        for (int i = 1; i <= n; i++) {
-            if (values[i] == null) {
-                values[i] = values[i-1] + "1" + reverse(invert(values[i-1]));
-            }
-            if(values[i].length() >= k) {
-                return values[i];
-            }
+        for (int i = 2; i <= n; i++) {
+            if (values[i] == null) values[i] = values[i-1] + "1" + reverse(invert(values[i-1]));
+            if(values[i].length() >= k) return values[i];
         }
-        result = values[n];
-        return result;
+        return values[n];
     }
 
     private static String invert(String value) {
