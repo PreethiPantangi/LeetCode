@@ -5,8 +5,8 @@ class Solution {
     }
 
     private static String generateBitString(int n, int k) {
-        int size = (int) Math.pow(2, n)-1;
-        String[] values = new String[size+1];
+        int size = (int) Math.pow(2, n);
+        String[] values = new String[size];
         values[0] = values[1] = "0";
         String result = "";
         for (int i = 1; i <= n; i++) {
