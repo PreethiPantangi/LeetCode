@@ -8,7 +8,7 @@ class Solution {
             int len = j - i + 1;
             sum += nums[j];
 
-            while(len > k) {
+            if(len > k) {
                 sum -= nums[i++];
                 len = j - i + 1;
             }
