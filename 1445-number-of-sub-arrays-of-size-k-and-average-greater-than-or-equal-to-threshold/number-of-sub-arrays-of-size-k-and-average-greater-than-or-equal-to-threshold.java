@@ -14,7 +14,7 @@ class Solution {
                 i += 1;
             }
             len = j - i + 1;
-            if (len == k && sum/len >= threshold) {
+            if (len == k && sum >= threshold * k) {
                 count += 1;
             }
             j += 1;
