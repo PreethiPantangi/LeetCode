@@ -1,24 +1,17 @@
 class Solution {
     public int findContentChildren(int[] g, int[] s) {
-        PriorityQueue<Integer> greed = new PriorityQueue<>();
-        for(int i = 0; i < g.length; i++) {
-            greed.add(g[i]);
-        }
-
-        PriorityQueue<Integer> children = new PriorityQueue<>();
-        for(int i = 0; i < s.length; i++) {
-            children.add(s[i]);
-        }
-
+        Arrays.sort(g);
+        Arrays.sort(s);
+        
         int result = 0;
-        while(!children.isEmpty() && !greed.isEmpty()) {
-            if(children.peek() >= greed.peek()) {
+        int greedIndex = 0;
+        int childIndex = 0;
+        while(childIndex < s.length && greedIndex < g.length) {
+            if(s[childIndex] >= g[greedIndex]) {
+                greedIndex += 1;
                 result += 1;
-                children.poll();
-                greed.poll();
-            } else {
-                children.poll();
             }
+            childIndex += 1;
         }
         return result;
     }
