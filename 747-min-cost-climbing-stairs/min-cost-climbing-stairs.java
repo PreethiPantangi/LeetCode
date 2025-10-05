@@ -3,15 +3,11 @@ class Solution {
         int n = cost.length;
         int[] minCost = new int[n+1];
         Arrays.fill(minCost, -1);
-        minCost[n] = 0;
-        return Math.min(dp(n-1, cost, minCost), dp(n-2, cost, minCost));
-    }
-
-    private int dp(int n, int[] cost, int[] minCost) {
-        if(minCost[n] != -1) return minCost[n];
-        if(n == 0) return cost[0];
-        if(n == 1) return cost[1];
-        minCost[n] = Math.min(dp(n-1, cost, minCost), dp(n-2, cost, minCost)) + cost[n];
+        minCost[0] = 0;
+        minCost[1] = 0;
+        for(int i = 2; i <= n; i++) {
+            minCost[i] = Math.min(minCost[i-1] + cost[i-1], minCost[i-2] + cost[i-2]);
+        }
         return minCost[n];
     }
 }
