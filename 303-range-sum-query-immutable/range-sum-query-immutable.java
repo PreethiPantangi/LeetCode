@@ -1,16 +1,16 @@
 class NumArray {
 
-    private int[] precomputed;
+    private int[] preComputed;
     public NumArray(int[] nums) {
         int n = nums.length;
-        precomputed = new int[n+1];
-        for(int i = 0; i < nums.length; i++) {
-            precomputed[i+1] = precomputed[i] + nums[i];
+        this.preComputed = new int[n+1];
+        for(int i = 0; i < n; i++) {
+            this.preComputed[i+1] += this.preComputed[i] + nums[i];
         }
     }
     
     public int sumRange(int left, int right) {
-        return precomputed[right+1] - precomputed[left];
+        return this.preComputed[right+1] - this.preComputed[left];
     }
 }
 
